@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Financial Calculator</h1>
+        <div class="buttons">
+            <!-- Investment Section -->
+            <div class="section">
+                <h2>Investment Calculator</h2>
+                <p>Calculate your future returns with simple or compound interest options.</p>
+                <a href="/investment">Go to Investment Calculator</a>
+            </div>
+
+            <!-- Bond Section -->
+            <div class="section">
+                <h2>Bond Calculator</h2>
+                <p>Estimate your monthly repayments for a home loan.</p>
+                <a href="/bond">Go to Bond Calculator</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
