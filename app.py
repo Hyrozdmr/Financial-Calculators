@@ -13,16 +13,16 @@ def home():
 def investment():
     if request.method == 'POST':
         try:
-            deposit = float(request.form['deposit'])
-            rate = float(request.form['rate'])
-            time = float(request.form['time'])
+            initial_deposit = float(request.form['deposit'])
+            interest_rate = float(request.form['rate'])  # Updated
+            investment_period = float(request.form['time'])  # Updated
             interest_type = request.form['interest']
 
             if interest_type == 'simple':
-                total = deposit * (1 + (rate / 100) * time)
+                total = initial_deposit * (1 + (interest_rate / 100) * investment_period)
                 result = f"Final Total (Simple Interest): £{round(total, 2)}"
             elif interest_type == 'compound':
-                total = deposit * math.pow((1 + (rate / 100)), time)
+                total = initial_deposit * math.pow((1 + (interest_rate / 100)), investment_period)
                 result = f"Final Total (Compound Interest): £{round(total, 2)}"
             else:
                 result = "Invalid interest type selected."
@@ -32,6 +32,7 @@ def investment():
         return render_template('result.html', title="Investment Result", result=result)
 
     return render_template('investment.html', title="Investment Calculator")
+
 
 # Bond Calculator Route
 @app.route('/bond', methods=['GET', 'POST'])
